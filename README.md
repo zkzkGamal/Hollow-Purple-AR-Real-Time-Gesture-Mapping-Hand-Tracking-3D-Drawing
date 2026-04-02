@@ -34,6 +34,18 @@ An interactive 2D whiteboard that allows you to paint in the air using simple ha
 
 ---
 
+## 🎹 Play Piano AR
+An interactive virtual piano application that lets you play synthesised keys by tapping on them in the air using MediaPipe tracking and OpenCV.
+
+### 🧩 Modules Included
+- **`settings.py`**: Configuration for piano layout (white and black keys), screen dimensions, and MediaPipe logic.
+- **`PianoKeyboard.py`**: Handles drawing both white and black keys overlapping onto the OpenCV canvas, and prioritizing hit-detection.
+- **`SoundManager.py`**: Wraps `pygame.mixer` to ensure overlapping key sound playback with low latency.
+- **`generate_tones.py`**: A utility script to computationally generate the ADSR `.wav` sound frequencies for standard pitches and sharps (black keys).
+- **`main.py`**: The orchestrator that launches the camera, executes the tracking loop, tests fingertips against boundaries, and triggers the audio.
+
+---
+
 ## 🚀 Getting Started
 
 ### 1. Prerequisites
@@ -63,13 +75,25 @@ pip install -r requirements.txt
 python main.py
 ```
 
+#### Option C: Play Piano AR
+```bash
+pip install -r requirements.txt
+# Navigate to the piano folder
+cd playpiano
+
+# Run the piano app
+python generate_tones.py
+python main.py
+```
+
 ---
 
 ## 📦 Requirements
-The core Python requirements (for legacy components) are listed in `requirements.txt`:
+The core Python requirements are listed in `requirements.txt`:
 - `opencv-python`
 - `mediapipe`
 - `numpy`
+- `pygame` (for Play Piano audio)
 
 ---
 
