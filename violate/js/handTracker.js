@@ -16,10 +16,10 @@ export class HandTracker {
         });
 
         this.hands.setOptions({
-            maxNumHands: 1,
+            maxNumHands: 2,
             modelComplexity: 1,
-            minDetectionConfidence: 0.7,
-            minTrackingConfidence: 0.7,
+            minDetectionConfidence: 0.6,
+            minTrackingConfidence: 0.6,
             selfieMode: false
         });
 

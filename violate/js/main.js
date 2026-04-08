@@ -1,8 +1,3 @@
-/**
- * main.js
- * Orchestration for Hollow Purple style 3-color mixing
- */
-
 import { HandTracker } from './handTracker.js';
 import { Scene3D } from './threeScene.js';
 import { OrbManager } from './orbManager.js';
