@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromaHands - Live Experience</title>
+    <link rel="stylesheet" href="css/scene.css">
+    <!-- MediaPipe Hands CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <!-- Three.js CDN -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+        <p>Initializing hand tracking...</p>
+    </div>
+
+    <div class="container">
+        <!-- Social Media / TikTok Stage Container -->
+        <div class="ar-stage" id="ar-stage">
+            <!-- Webcam feed (background) -->
+            <video id="webcam" autoplay playsinline muted></video>
+            
+            <!-- Three.js Canvas -->
+            <div id="three-container"></div>
+
+            <!-- 2D Overlay Canvas (landmarks & circles) -->
+            <canvas id="overlay-canvas"></canvas>
+
+            <!-- UI Elements -->
+            <div id="ui-layer">
+                <div id="message-display">Show your hands to mix colors</div>
+            </div>
+        </div>
+        
+        <!-- Global FPS / Info -->
+        <div id="fps-counter">FPS: 0</div>
+    </div>
+
+    <!-- Application Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
