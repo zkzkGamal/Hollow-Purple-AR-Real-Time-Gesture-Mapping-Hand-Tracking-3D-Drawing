@@ -94,15 +94,15 @@ export class ColorCircleManager {
     }
 
     initCircles() {
-        const radius = 60;
-        const spacing = 200;
+        const radius = 75;
+        const spacing = 220;
         const startX = this.width / 2 - spacing;
-        const y = this.height - 150;
+        const y = this.height * 0.95; // 5% higher than before
 
         this.circles = [
             new ColorCircle('red', startX, y, radius, '#FF0000', 'Red'),
             new ColorCircle('yellow', startX + spacing, y, radius, '#FFFF00', 'Yellow'),
-            new ColorCircle('blue', startX + spacing * 2, y, radius, '#0000FF', 'Blue')
+            new ColorCircle('blue', startX + spacing * 3, y, radius, '#0000FF', 'Blue')
         ];
     }
 
@@ -120,12 +120,6 @@ export class ColorCircleManager {
                 // Update individual circle
                 if (circle.isGrabbed && circle.grabbedByHandIdx === handIdx) {
                     circle.update(indexTip, handIdx);
-                    
-                    // Release logic: if hand is not detected or finger is far?
-                    // User requested: "stays still for ~0.5s → release / drop"
-                    // Actually, let's implement the simpler "moves away" or "distance threshold"
-                    // But instructions say: "moves away from the original circle zone and stays still for ~0.5s" 
-                    // Let's interpret "moves away" as being grabbed, and "stay still" as the release condition.
                     
                     this.handleReleaseLogic(circle, indexTip);
                 } else {
