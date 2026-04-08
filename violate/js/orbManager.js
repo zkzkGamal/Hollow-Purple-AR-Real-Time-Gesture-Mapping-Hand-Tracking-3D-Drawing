@@ -25,7 +25,7 @@ function getMixResult(id1, id2, color1, color2) {
 
     // If one of them is a 'mixed' orb, result is Violet
     if (id1.startsWith('mixed') || id2.startsWith('mixed')) {
-        return { color: 0x8a2be2, title: 'VIOLET' };
+        return { color: 0x4b0082, title: 'VIOLET' };  // Deep dark violet / indigo
     }
 
     // Fallback: blend colors
