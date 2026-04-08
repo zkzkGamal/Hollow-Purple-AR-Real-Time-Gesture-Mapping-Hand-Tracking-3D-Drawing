@@ -1,6 +1,6 @@
 
 # ── MediaPipe ─────────────────────────────────────────────────────────────────
-MAX_NUM_HANDS: int = 1
+MAX_NUM_HANDS: int = 5
 MIN_DETECTION_CONFIDENCE: float = 0.7   
 MIN_TRACKING_CONFIDENCE: float = 0.7  
 MIN_HAND_PRESENCE_CONFIDENCE: float = 0.7
