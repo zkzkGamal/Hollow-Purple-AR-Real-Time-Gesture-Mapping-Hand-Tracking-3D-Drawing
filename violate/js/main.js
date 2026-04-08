@@ -3,8 +3,6 @@ import { Scene3D } from './threeScene.js';
 import { OrbManager } from './orbManager.js';
 import * as THREE from 'three';
 
-
-
 class App {
     constructor() {
         this.video = document.getElementById('webcam');
@@ -64,19 +62,9 @@ class App {
         
         const dt = this.clock.getDelta();
         const t = this.clock.getElapsedTime();
-
-        // 1. Update Hand Tracking (Landmarks drawn via callback in tracker)
-        
-        // 2. Update 3D Orbs & Interaction
         this.orbManager.update(this.handTracker, t);
-
-        // 3. Update 3D Effects
         this.scene3D.updateHP(dt, t);
-
-        // 4. Render 3D Scene
         this.scene3D.render();
-
-        // 5. Update UI
         if (this.handTracker.isHandDetected()) {
             this.messageDisplay.style.opacity = '0';
         } else {
@@ -84,7 +72,6 @@ class App {
             this.messageDisplay.textContent = 'Show your hands to mix colors';
         }
 
-        // FPS
         this.frameCount = (this.frameCount || 0) + 1;
         const now = performance.now();
         if (!this.lastFpsUpdate || now - this.lastFpsUpdate > 1000) {

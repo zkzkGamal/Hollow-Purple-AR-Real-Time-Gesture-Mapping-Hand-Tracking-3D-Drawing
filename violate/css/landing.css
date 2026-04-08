@@ -123,9 +123,48 @@ body {
     font-size: 1.1rem;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     backdrop-filter: blur(10px);
+    cursor: not-allowed;
+    opacity: 0.5;
+    outline: none;
 }
 
-.enter-btn:hover {
+/* ── Loading state: animated ring ── */
+.enter-btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 54px;
+    border: 2px solid transparent;
+    background: conic-gradient(from 0deg, #ff3e3e, #3e8dff, #ffeb3e, #ff3e3e) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 0;
+    animation: spin-ring 1.2s linear infinite;
+    transition: opacity 0.3s ease;
+}
+
+.enter-btn:not([disabled])::before,
+.enter-btn.ready::before {
+    opacity: 0 !important;   /* hide spinner once ready */
+}
+
+.enter-btn[disabled]::before {
+    opacity: 1;
+}
+
+@keyframes spin-ring {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ── Ready state ── */
+.enter-btn.ready {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.enter-btn.ready:hover {
     transform: translateY(-5px) scale(1.05);
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.3);

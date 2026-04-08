@@ -17,9 +17,9 @@ export class HandTracker {
 
         this.hands.setOptions({
             maxNumHands: 2,
-            modelComplexity: 1,
-            minDetectionConfidence: 0.6,
-            minTrackingConfidence: 0.6,
+            modelComplexity: 2,
+            minDetectionConfidence: 0.5,
+            minTrackingConfidence: 0.5,
             selfieMode: false
         });
 
